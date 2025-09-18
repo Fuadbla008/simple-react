@@ -1,7 +1,6 @@
 import React, { use, useMemo, useState } from 'react'
 import './App.css'
-import Sparkline from './components/Sparkline'
-import BarChart from './components/BarChart'
+
 
 function App() {
   // sample timeseries and category data
@@ -20,9 +19,6 @@ function App() {
     { id: 'TXN-1004', user: 'Dana', amount: 60, status: 'Refunded' },
   ]
 
-
-
-
   const [newCount, setFucn] = useState(0);
   const incrementCount = () => {
     setFucn(newCount + 1);
@@ -35,9 +31,9 @@ function App() {
       <button onClick={incrementCount}>incresse button</button>
 
       <ul>
-        {recent.map(item => (
+        {categoryData.map(item => (
           <li key={item.id}>
-            {item.id} - {item.user} - ${item.amount} - {item.status}
+            {item.name} - {item.value}
           </li>
         ))}
       </ul>

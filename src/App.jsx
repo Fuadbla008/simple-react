@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { use, useMemo, useState } from 'react'
 import './App.css'
 import Sparkline from './components/Sparkline'
 import BarChart from './components/BarChart'
@@ -19,6 +19,11 @@ function App() {
     { id: 'TXN-1003', user: 'Carlos', amount: 780, status: 'Completed' },
     { id: 'TXN-1004', user: 'Dana', amount: 60, status: 'Refunded' },
   ]
+
+  const [ctn, setCtn] = useState(0);
+  const incrementCount = () => {
+    setCtn(ctn + 1);
+  }
 
   // derived KPIs
   const totalSales = useMemo(() => salesSeries.reduce((a, b) => a + b, 0), [salesSeries])
@@ -112,6 +117,10 @@ function App() {
           </div>
         </div>
       </section>
+      <div>
+        <h3>Count: {ctn}</h3>
+        <button onClick={incrementCount}>Increment Count</button>
+      </div>
     </div>
   )
 }

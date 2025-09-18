@@ -14,11 +14,14 @@ function App() {
     { name: 'Product D', value: 90 },
   ]
   const recent = [
-    { id: 'TXN-1001', user: 'Alice', amount: 1200, status: 'Completed' },
+    { id: 'TXN-1001', user: 'Alice', amount: 600, status: 'Completed' },
     { id: 'TXN-1002', user: 'Bob', amount: 450, status: 'Pending' },
     { id: 'TXN-1003', user: 'Carlos', amount: 780, status: 'Completed' },
     { id: 'TXN-1004', user: 'Dana', amount: 60, status: 'Refunded' },
   ]
+
+
+
 
   const [newCount, setFucn] = useState(0);
   const incrementCount = () => {
@@ -30,6 +33,14 @@ function App() {
       <h1>This is Counter Function</h1>
       <h3>Counter Number : {newCount}</h3>
       <button onClick={incrementCount}>incresse button</button>
+
+      <ul>
+        {recent.map(item => (
+          <li key={item.id}>
+            {item.id} - {item.user} - ${item.amount} - {item.status}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

@@ -24,6 +24,9 @@ function App() {
   const incrementCount = () => {
     setCtn(ctn + 1);
   }
+  const decrementCount = () => {
+    setCtn(ctn - 1);
+  }
 
   // derived KPIs
   const totalSales = useMemo(() => salesSeries.reduce((a, b) => a + b, 0), [salesSeries])
@@ -33,93 +36,10 @@ function App() {
 
   return (
     <div className="dashboard">
-      <header className="dashboard-header">
-        <div>
-          <h1>Analytics Dashboard</h1>
-          <p className="muted">Overview · Live sample data</p>
-        </div>
-        <div className="header-actions">
-          <button className="btn">Export</button>
-          <button className="btn primary">Create Report</button>
-        </div>
-      </header>
-
-      <section className="kpis">
-        <div className="card kpi">
-          <div className="kpi-title">Total Sales</div>
-          <div className="kpi-value">${totalSales}</div>
-          <div className="kpi-spark">
-            <Sparkline data={salesSeries} color="#7c3aed" />
-          </div>
-        </div>
-
-        <div className="card kpi">
-          <div className="kpi-title">Active Users</div>
-          <div className="kpi-value">{activeUsers}</div>
-          <div className="kpi-spark">
-            <Sparkline data={userSeries} color="#06b6d4" />
-          </div>
-        </div>
-
-        <div className="card kpi">
-          <div className="kpi-title">Avg Order</div>
-          <div className="kpi-value">${avgOrder}</div>
-          <div className="kpi-foot">Conversion {conversion}%</div>
-        </div>
-
-        <div className="card kpi">
-          <div className="kpi-title">Top Category</div>
-          <div className="kpi-value">{categoryData[0].name}</div>
-          <div className="kpi-foot">{categoryData[0].value} sales</div>
-        </div>
-      </section>
-
-      <section className="grid">
-        <div className="card">
-          <h3>Sales Overview</h3>
-          <div className="chart big">
-            <Sparkline data={salesSeries} color="#4f46e5" height={120} />
-          </div>
-        </div>
-
-        <div className="card">
-          <h3>Category Breakdown</h3>
-          <div className="chart">
-            <BarChart data={categoryData} />
-          </div>
-        </div>
-
-        <div className="card full">
-          <h3>Recent Transactions</h3>
-          <div className="table-wrap">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>User</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {recent.map(r => (
-                  <tr key={r.id}>
-                    <td>{r.id}</td>
-                    <td>{r.user}</td>
-                    <td>${r.amount}</td>
-                    <td>
-                      <span className={`status ${r.status.toLowerCase()}`}>{r.status}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
       <div>
         <h3>Count: {ctn}</h3>
         <button onClick={incrementCount}>Increment Count</button>
+        <button onClick={decrementCount}>decresse Countt</button>
       </div>
     </div>
   )

@@ -20,27 +20,11 @@ function App() {
     { id: 'TXN-1004', user: 'Dana', amount: 60, status: 'Refunded' },
   ]
 
-  const [ctn, setCtn] = useState(0);
-  const incrementCount = () => {
-    setCtn(ctn + 1);
-  }
-  const decrementCount = () => {
-    setCtn(ctn - 1);
-  }
 
-  // derived KPIs
-  const totalSales = useMemo(() => salesSeries.reduce((a, b) => a + b, 0), [salesSeries])
-  const activeUsers = useMemo(() => userSeries[userSeries.length - 1], [userSeries])
-  const avgOrder = useMemo(() => Math.round(totalSales / recent.length), [totalSales, recent.length])
-  const conversion = useMemo(() => Math.round((activeUsers / 500) * 100), [activeUsers]) 
 
   return (
     <div className="dashboard">
-      <div>
-        <h3>Count: {ctn}</h3>
-        <button onClick={incrementCount}>Increment Count</button>
-        <button onClick={decrementCount}>decresse Countt</button>
-      </div>
+      
     </div>
   )
 }

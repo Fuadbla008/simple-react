@@ -1,5 +1,7 @@
 import React, { use, useEffect, useMemo, useState } from 'react'
 import './App.css'
+import './Userdata'
+import User from './Userdata';
 
 
 function App() {
@@ -20,6 +22,11 @@ function App() {
 
   return (
     <div className="dashboard">
+
+      <h1>This is User Function</h1>
+      <h3>User Number : {users.length}</h3>
+      <User user={users[0]} />
+
       <h1>This is Counter Function</h1>
       <h3>Counter Number : {newCount}</h3>
       <button onClick={incrementCount}>incresse button</button>

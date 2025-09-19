@@ -13,7 +13,7 @@ function App() {
       .then(data => getusers(data));
   }, []);
 
-
+  users.map(user => <User key={user.id} user={user} />);
 
   const [newCount, setFucn] = useState(0);
   const incrementCount = () => {
@@ -25,8 +25,7 @@ function App() {
 
       <h1>This is User Function</h1>
       <h3>User Number : {users.length}</h3>
-      <User user={users[0]} />
-
+      {users.map(user => <User key={user.id} user={user} />)}
       <h1>This is Counter Function</h1>
       <h3>Counter Number : {newCount}</h3>
       <button onClick={incrementCount}>incresse button</button>

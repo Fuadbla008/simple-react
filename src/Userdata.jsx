@@ -1,12 +1,16 @@
-export default function User({ user }) {
+function Userdata({user}) {
+  const [users] = user;
   return (
+    console.log(users),
     <div style={{ border: '2px solid green', margin: '20px', padding: '20px', borderRadius: '10px' }}>
-      <h2>Name: {user.name}</h2>
-      <p>Email: {user.email}</p>
-      <p>Phone: {user.phone}</p>
-      <p>Website: {user.website}</p>
-      <p>Company: {user.company.name}</p>
-      <p>Address: {user.address.suite}, {user.address.street}, {user.address.city}, {user.address.zipcode}</p>
+      <h2>Name: {users.name}</h2>
+      <p>Email: {users.email}</p>
+      <p>Phone: {users.phone}</p>
+      <p>Website: {users.website}</p>
+      <p>Company: {users.company?.name}</p>
+      <p>Address: {users.address?.street}, {users.address?.city}</p>
     </div>
   );
 }
+
+export default Userdata;

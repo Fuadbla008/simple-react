@@ -1,7 +1,6 @@
 import React, { use, useEffect, useMemo, useState } from 'react'
 import './App.css'
-import './Userdata'
-import User from './Userdata';
+import Userdata from './Userdata.jsx'
 
 
 function App() {
@@ -13,19 +12,15 @@ function App() {
       .then(data => getusers(data));
   }, []);
 
-  users.map(user => <User key={user.id} user={user} />);
-
   const [newCount, setFucn] = useState(0);
   const incrementCount = () => {
     setFucn(newCount + 1);
   }
 
   return (
-    <div className="dashboard">
-
+    <div>
+      <Userdata user={users} />
       <h1>This is User Function</h1>
-      <h3>User Number : {users.length}</h3>
-      {users.map(user => <User key={user.id} user={user} />)}
       <h1>This is Counter Function</h1>
       <h3>Counter Number : {newCount}</h3>
       <button onClick={incrementCount}>incresse button</button>
